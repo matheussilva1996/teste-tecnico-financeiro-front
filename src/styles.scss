@@ -1,1 +1,67 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'montserrat' }
+
+
+/* Aplica a cor #002C37 ao botão mat-raised-button com a cor 'primary' */
+::ng-deep button.mat-raised-button[color="primary"] {
+  background-color: #002C37;
+  color: white; /* Cor do texto no botão */
+}
+
+/* Estilo adicional para quando o botão estiver desabilitado */
+::ng-deep button.mat-raised-button[color="primary"][disabled] {
+  background-color: #CCCCCC;
+  color: #666666;
+}
+
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #EDEDED;
+  font-family: 'montserrat';
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.header {
+  padding: 15px;
+}
+
+.header .brand {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  text-align: center;
+}
+
+.header .brand span {
+   color:white;
+}
+
+.navbar-toggler-icon {
+   filter: invert(1);
+}
+
+
+
+
+
+
+
+
+
+
+

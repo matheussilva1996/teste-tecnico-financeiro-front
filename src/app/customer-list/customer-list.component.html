@@ -1,0 +1,81 @@
+
+<div class="container">
+  <h2 class="title">Lista de Clientes</h2>
+  <div class="filter-bar">
+    <div class="form-group">
+      <input type="text" placeholder="Nome, CPF ou data de nascimento" class="form-control" id="filterInput" (keyup)="applyFilter($event.target)">
+    </div>
+    <div class="button-group">
+      <button type="button" class="btn btn-primary" routerLink="/customer-form">Adicionar Novo Usuário</button>
+      <button type="button" class="btn btn-primary" (click)="removeSelectedRows()" [disabled]="!selection.hasValue()">Remover Usuário</button>
+    </div>
+  </div>
+
+
+  <div class="table-container">
+
+    <mat-table #table [dataSource]="dataSource" matSort>
+
+      <ng-container matColumnDef="select">
+        <mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggle() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()">
+          </mat-checkbox>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="$event ? selection.toggle(row) : null"
+                        [checked]="selection.isSelected(row)">
+          </mat-checkbox>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Nome Cliente </mat-header-cell>
+        <mat-cell *matCellDef="let customer"> {{ customer.name | titlecase}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="cpf">
+        <mat-header-cell *matHeaderCellDef> CPF </mat-header-cell>
+        <mat-cell *matCellDef="let customer"> {{ customer.cpf }} </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="registrationDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Data de Cadastro </mat-header-cell>
+        <mat-cell *matCellDef="let customer"> {{ customer.registrationDate | date: 'dd/MM/yyyy' }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="birthDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Data de Nascimento </mat-header-cell>
+        <mat-cell *matCellDef="let customer"> {{ customer.birthdate | date: 'dd/MM/yyyy' }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="income">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Renda Mensal </mat-header-cell>
+        <mat-cell *matCellDef="let customer"> {{ customer.income | currencyFormat }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Ações </mat-header-cell>
+        <mat-cell *matCellDef="let customer">
+          <button mat-icon-button (click)="editCustomer(customer)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <!-- <button mat-icon-button (click)="deleteCustomer(customer.id)">
+            <mat-icon>delete</mat-icon>
+          </button> -->
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>
+
+
+
+

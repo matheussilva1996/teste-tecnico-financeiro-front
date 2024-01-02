@@ -1,0 +1,44 @@
+/* customer-form.component.css */
+
+.form-container {
+  max-width: 400px; /* Ajuste conforme necessário */
+  margin: 0 auto; /* Centralizar o formulário horizontalmente */
+  margin-top: 20px; /* Adicionar margem superior */
+  .title {
+    color: #0B4051;
+  }
+}
+
+mat-form-field {
+  width: 100%; /* Garantir que os campos ocupem 100% da largura */
+  margin-bottom: 15px; /* Adicionar espaçamento inferior entre os campos */
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px; /* Adicionar margem superior para os botões */
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+label {
+  color: #00586F;
+}
+
+.btn-primary {
+  background-color: #0B4051;; /* Esta cor deve ser atualizada para corresponder à cor do botão BAIXA na imagem */
+  border-color: #0B4051;; /* Atualize isso também, se necessário */
+  color: white; /* Isso fará com que o texto do botão seja branco */
+}
+
+.btn-light {
+  background-color: gray; /* Isso fará com que seu botão Cancelar seja cinza */
+  border-color: gray; /* Atualize isso também, se necessário */
+  color: black; /* Isso fará com que o texto do botão seja preto */
+}
+

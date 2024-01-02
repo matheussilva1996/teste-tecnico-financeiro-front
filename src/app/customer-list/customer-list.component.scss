@@ -1,0 +1,104 @@
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 10px;
+
+  .title {
+    color: #0B4051;
+    font-size: 24px; // Aumenta o tamanho da fonte do título
+  }
+
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    .form-group {
+      // width: 100%;
+      flex-grow: 1;
+      margin-right: 20px;
+    }
+
+    #filterInput {
+      width: 100%;
+      border-radius: 4px; // Adiciona bordas arredondadas ao campo de entrada
+    }
+
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+
+      button {
+        margin-bottom: 10px;
+        background-color: #0B4051;
+        border: #0B4051;
+        color: white;
+        border-radius: 8px; /* Bordas arredondadas do botão */
+      }
+    }
+
+
+  }
+
+  .table-container {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 10px;
+
+    mat-table {
+      width: 100%;
+      margin-bottom: 0;
+
+      mat-row {
+        height: 48px;
+        display: flex;
+        align-items: center;
+      }
+
+      mat-cell {
+        padding: 10px;
+        border-bottom: none;
+      }
+
+      mat-header-cell {
+        padding: 10px;
+        background-color: #11728B; // Altera a cor de fundo do cabeçalho da tabela
+        color: white; // Altera a cor do texto do cabeçalho da tabela para branco
+      }
+
+      mat-header-row, mat-row {
+        border-bottom: 1px solid #ccc;
+      }
+    }
+
+    .mat-paginator {
+      margin-top: 10px;
+    }
+  }
+
+  .mat-button.mat-yellow {
+    color: #F5C132;
+  }
+}
+
+
+::ng-deep .mat-mdc-checkbox.mat-mdc-checkbox-checked .mdc-checkbox__background, .mdc-checkbox__ripple {
+  background-color: #0EA0C0 !important;
+  border-color: #0EA0C0 !important;
+}
+
+::ng-deep .mat-mdc-checkbox.mat-accent {
+  --mdc-checkbox-selected-focus-icon-color: initial !important;
+  --mdc-checkbox-selected-icon-color: initial !important;
+  --mdc-checkbox-selected-hover-icon-color: initial !important;
+  --mdc-checkbox-selected-pressed-icon-color:  initial !important;
+
+}
+
+
+

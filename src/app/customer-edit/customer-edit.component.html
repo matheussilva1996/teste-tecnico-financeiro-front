@@ -1,0 +1,59 @@
+
+<div class="container">
+  <h2 class="title">Editar Informações do Cliente</h2>
+
+  <form>
+
+    <div class="form-group">
+      <label for="name">Nome do Cliente</label>
+      <input type="text" class="form-control" id="name" placeholder="Nome do Cliente" name="name" [appNomeValidator]="2" [(ngModel)]="customer.name" required>
+      <div *ngIf="customerForm.get('name')?.hasError('required') && customerForm.get('name')?.touched" class="error-message">
+        Nome é um campo obrigatório.
+      </div>
+      <div *ngIf="customerForm.get('name')?.hasError('invalidNome')" class="error-message">
+        O campo precisa ser preenchido com nome e sobrenome.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cpf">CPF</label>
+      <input type="text" class="form-control" id="cpf" placeholder="CPF" name="cpf" appCpfFormat mask="000.000.000-00" [(ngModel)]="customer.cpf" required pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" [readonly]="true">
+    </div>
+
+    <div class="form-group">
+      <label for="birthdate">Data de Nascimento</label>
+      <input type="text" class="form-control" id="birthdate" placeholder="Data de Nascimento" name="birthdate" [(ngModel)]="customer.birthdate" required>
+      <div *ngIf="customerForm.get('birthdate')?.hasError('required') && customerForm.get('birthdate')?.touched" class="error-message">
+        Data de Nascimento é um campo obrigatório.
+      </div>
+      <div *ngIf="customerForm.get('birthdate')?.hasError('invalidAge') && customerForm.get('birthdate')?.touched" class="error-message">
+        A idade do cliente deve estar entre 18 e 60 anos.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="income">Renda Mensal</label>
+      <input type="text" class="form-control" id="income" placeholder="Renda Mensal" name="income" appCurrencyFormat [(ngModel)]="customer.income" required>
+      <div *ngIf="customerForm.get('income')?.hasError('required') && customerForm.get('income')?.touched" class="error-message">
+        Renda Mensal é um campo obrigatório.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="Email" name="email" [(ngModel)]="customer.email" required email>
+      <div *ngIf="customerForm.get('email')?.hasError('required') && customerForm.get('email')?.touched" class="error-message">
+        E-mail é um campo obrigatório.
+      </div>
+      <div *ngIf="customerForm.get('email')?.hasError('email') && customerForm.get('email')?.touched" class="error-message">
+        E-mail é inválido.
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button type="button" class="btn btn-primary" (click)="submitForm()">Salvar</button>
+      <button type="button" class="btn btn-light" routerLink="/customer-list">Cancelar</button>
+    </div>
+
+  </form>
+</div>

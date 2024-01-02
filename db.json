@@ -1,0 +1,31 @@
+{
+  "customers": [
+    {
+      "name": "gabriel leao",
+      "cpf": "207.652.168-25",
+      "birthdate": "10/06/1980",
+      "income": "112000.74",
+      "email": "gabriel@email.com",
+      "registrationDate": "2023-12-30",
+      "id": 12
+    },
+    {
+      "name": "mario roberto neto",
+      "cpf": "557.246.465-10",
+      "birthdate": "10/15/1980",
+      "income": "1405.00",
+      "email": "mario@email.com",
+      "registrationDate": "2024-01-01",
+      "id": 13
+    },
+    {
+      "name": "lalala la",
+      "cpf": "213.875.326-34",
+      "birthdate": "01-01-2000",
+      "income": "10000.00",
+      "email": "a@a.com",
+      "registrationDate": "2024-01-02",
+      "id": 14
+    }
+  ]
+}
